@@ -1,0 +1,133 @@
+{
+  "studies": [
+    {
+      "diseases": [
+        {
+          "symptoms": [
+            {
+              "name": "cough",
+              "affected": 50
+            },
+            {
+              "name": "fever",
+              "affected": 350
+            },
+            {
+              "name": "sniffles",
+              "affected": 75
+            }
+          ],
+          "name": "Flu",
+          "affected": 400
+        },
+        {
+          "symptoms": [
+            {
+              "name": "cough",
+              "affected": 475
+            },
+            {
+              "name": "fever",
+              "affected": 50
+            },
+            {
+              "name": "sniffles",
+              "affected": 480
+            }
+          ],
+          "name": "Cold",
+          "affected": 500
+        }
+      ],
+      "sampleSize": 1000
+    },
+    {
+      "diseases": [
+        {
+          "symptoms": [
+            {
+              "name": "diarrhea",
+              "affected": 350
+            },
+            {
+              "name": "cramps",
+              "affected": 150
+            },
+            {
+              "name": "chronic fatigue",
+              "affected": 400
+            }
+          ],
+          "name": "Chron's Disease",
+          "affected": 500
+        },
+        {
+          "symptoms": [
+            {
+              "name": "diarrhea",
+              "affected": 150
+            },
+            {
+              "name": "cramps",
+              "affected": 100
+            }
+          ],
+          "name": "Ulcerative Colitis",
+          "affected": 200
+        },
+        {
+          "symptoms": [
+            {
+              "name": "diarrhea",
+              "affected": 148
+            },
+            {
+              "name": "cramps",
+              "affected": 30
+            },
+            {
+              "name": "dizziness",
+              "affected": 65
+            }
+          ],
+          "name": "Giardia",
+          "affected": 150
+        }
+      ],
+      "sampleSize": 1200
+    },
+    {
+      "diseases": [
+        {
+          "symptoms": [
+            {
+              "name": "painful urination",
+              "affected": 1000
+            },
+            {
+              "name": "pelvic pain",
+              "affected": 900
+            }
+          ],
+          "name": "Gonorrhea",
+          "affected": 1250
+        },
+        {
+          "symptoms": [
+            {
+              "name": "painful urination",
+              "affected": 800
+            },
+            {
+              "name": "pelvic pain",
+              "affected": 500
+            }
+          ],
+          "name": "Chlamydia",
+          "affected": 900
+        }
+      ],
+      "sampleSize": 3200
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "studies": [
+    {
+      "diseases": [
+        {
+          "symptoms": [
+            {
+              "name": "A1",
+              "affected": 400
+            }
+          ],
+          "name": "A",
+          "affected": 500
+        }
+      ],
+      "sampleSize": 600
+    },
+    {
+      "diseases": [
+        {
+          "symptoms": [
+            {
+              "name": "B1",
+              "affected": 100
+            },
+            {
+              "name": "B2",
+              "affected": 200
+            }
+          ],
+          "name": "B",
+          "affected": 300
+        },
+        {
+          "symptoms": [
+            {
+              "name": "C1",
+              "affected": 1700
+            },
+            {
+              "name": "C2",
+              "affected": 1800
+            }
+          ],
+          "name": "C",
+          "affected": 1900
+        }
+      ],
+      "sampleSize": 2000
+    },
+    {
+      "diseases": [
+        {
+          "symptoms": [
+            {
+              "name": "D1",
+              "affected": 1000
+            }
+          ],
+          "name": "D",
+          "affected": 1100
+        }
+      ],
+      "sampleSize": 1200
+    }
+  ]
+}

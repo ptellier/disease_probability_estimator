@@ -1,0 +1,20 @@
+Icons taken from https://materialdesignicons.com/
+(open source)
+
+
+plus-circle-outline
+minus-circle-outline
+folder-outline
+emoticon-sick-outline
+    google
+
+calculator
+text-box-search-outline
+folder-multiple-outline
+    Austin Andrews
+
+trash-can-outline
+    GreenTurtwig
+
+clipboard-pulse-outline
+    Simran

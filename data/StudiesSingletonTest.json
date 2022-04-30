@@ -1,0 +1,1 @@
+{"studies":[{"diseases":[{"symptoms":[{"name":"same","affected":400}],"name":"A","affected":500}],"sampleSize":600},{"diseases":[{"symptoms":[{"name":"B1","affected":100},{"name":"B2","affected":200}],"name":"B","affected":300},{"symptoms":[{"name":"C1","affected":1700},{"name":"same","affected":1800}],"name":"C","affected":1900}],"sampleSize":2000}]}
