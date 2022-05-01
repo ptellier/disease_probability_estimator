@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath}
+
+\title{\textbf{Design Document}:\\ Algorithm to Calculate Disease Probability}
+\author{Phillip F. Tellier }
+\date{April 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Setup}
+
+Let events $S_{1}, S_{2}, S_{3} \ldots, S_{n}$ be the event that various symptoms occur in a study participant. Let events $D_{1}, D_{2}, D_{3} \ldots, D_{n}$ be the event that various symptoms occur in a study participant. Then $P(S_{1})$ is the probability that a participant has the symptom represented by $S_{1}$. Similarly:\medskip
+\begin{itemize}
+    \item $P\left(S_{1} \cap S_{2}\right)$ is the probability that a participant has the symptoms represented by $S_{1}$ and $S_{2}$.
+    \item $P\left(S_{1} | D_{2}\right)$ is the probability that a participant has the symptom represented by $S_{1}$ given that they have the disease represented by $D_{1}$
+    \item $P\left(S_{1} \cap S_{2}^{c} \right)$ is the probability that a participant has the symptoms represented by $S_{1}$ and does \textbf{not} have $S_{2}$.
+\end{itemize}
+
+
+\section{Data Collected}
+
+For each study entered into the program, the following data is collected for every disease $D_{x}$ where $S_{1}, S_{2}, S_{3} \ldots, S_{n}$ are all symptoms of the disease $D_{x}$:
+\medskip
+
+\begin{equation} \label{eq1}
+\begin{split}
+P\left(S_{i}~|~D_{x}\right), & ~~~~\forall i \in[1, n]\\
+P\left((S_{i} \cap S_{j})~|~D_{x}\right), & ~~~~\forall i, j \in[1, n]\\
+P\left((S_{i} \cap S_{j} \cap S_{k}) ~|~D_{x}\right), & ~~~~\forall i, j, k \in[1, n]\\
+\text{... all the way up to ...}\\
+P\left((S_{i_{1}} \cap S_{i_{2}} \ldots \cap S_{i_{n}}) ~|~D_{x}\right), & ~~~~\forall i_{1}, i_{2}, \ldots i_{n} \in[1, n]\\
+\end{split}
+\end{equation}
+
+\section{Algorithm}
+
+We want to calculate
+$P\left(D_{x}~|~S_{1}^{*} \cap S_{2}^{*} \cap \ldots \cap S_{n}^{*}\right)$
+where * for each $S_{i}^{*}$ could be chosen to be $S_{i}^{\text {c}}$ or $S_{i}$ 
+\textit{e.g.} we might want the algorithm to calculate $P\left(D_{x}~|~S_{1}^{c} \cap S_{2}^{c} \cap S_{3} \cap S_{4} \cap S_{5}\right)$\par
+\medskip We know that \smallskip
+%
+\begin{equation} \label{eq2}
+P\left(D_{x}~|~S_{1}^{*} \cap S_{2}^{*} \cap \ldots \cap S_{n}^{*}\right) = \frac{P\left(S_{1}^{*} \cap S_{2}^{*} \cap \ldots \cap S_{n}^{*} ~|~D_{x}\right) \times P\left(D_{x}\right)}{P\left(S_{1}^{*} \cap S_{2}^{*} \cap \ldots \cap S_{n}^{*}\right)}
+\end{equation}
+%
+So we need to express $P\left(S_{1}^{*} \cap S_{2}^{*} \cap \ldots \cap S_{n}^{*}\right)$ in terms of the collected data. To do this do the following: starting at $m = 1$ note that $P\left(S_{1}^{*} \cap S_{2}^{*} \cap \ldots \cap S_{m-1}^{*} \cap S_{m}^{*} \cap S_{m+1}^{*} \ldots \cap S_{n}^{*}\right)$ will fill into one of two cases\bigskip
+%
+\begin{itemize}
+    \item case 1: $S_{m}^{*}$ is $S_{m}$ \implies $P\left(S_{1}^{*} \cap S_{2}^{*} \cap \ldots \cap S_{m-1}^{*} \cap S_{m} \cap S_{m+1}^{*} \ldots \cap S_{n}^{*}\right)$ \\~~~~~~~~and we do not need to rewrite our formula
+    %
+    \item case 2: $S_{m}^{*}$ is $S_{m}^{c}$ \implies $P\left(S_{1}^{*} \cap S_{2}^{*} \cap \ldots \cap S_{m-1}^{*} \cap S_{m}^{c} \cap S_{m+1}^{*} \ldots \cap S_{n}^{*}\right)$
+    \\ and we can rewrite the formula as
+    \\ $P\left(S_{1}^{*} \cap S_{2}^{*} \cap \ldots \cap S_{m-1}^{*} \cap S_{m+1}^{*} \ldots \cap S_{n}^{*}\right) - P\left(S_{1}^{*} \cap S_{2}^{*} \cap \ldots \cap S_{m-1}^{*} \cap S_{m} \cap S_{m+1}^{*} \ldots \cap S_{n}^{*}\right)$
+    \\ notice that the "$c$" has disappeared from the $S_{m}^{c}$ to become $S_{m}$
+\end{itemize}\medskip
+%
+Increment m and repeat this process on all the terms for the case that applies until finishing with $m = n$. At this point the expression is the sum and differences of the data collected since the "$c\text{'s}$" have disappeared.
+
+\end{document}
